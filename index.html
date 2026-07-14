@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C Programming Training</title>
+<link rel="stylesheet" href="styles.css" />
+
+</head>
+
+<body>
+
+<header>
+    <div class="theme-container">
+
+    <span>☀️</span>
+
+    <label class="switch">
+        <input type="checkbox" id="themeSwitch">
+        <span class="slider"></span>
+    </label>
+
+    <span>🌙</span>
+
+    </div>
+
+<h1>C Programming Master Course</h1>
+
+<p>Learn C Programming from Beginner to Advanced with Embedded C</p>
+
+</header>
+
+<div class="container">
+
+<div class="grid">
+
+<div class="card">
+<div class="chapter">Chapter 1</div>
+<div class="title">Introduction to C</div>
+<div class="desc">
+History of C, Compiler, First Program, Structure of a C Program, Compilation Process.
+</div>
+<a class="button" href="chapter1.html">Open Chapter</a>
+</div>
+
+<div class="card">
+<div class="chapter">Chapter 2</div>
+<div class="title">Variables & Data Types</div>
+<div class="desc">
+Variables, Memory, int, char, float, double, sizeof(), Constants.
+</div>
+<a class="button" href="chapter2.html">Open Chapter</a>
+</div>
+
+<div class="card">
+<div class="chapter">Chapter 3</div>
+<div class="title">Operators</div>
+<div class="desc">
+Arithmetic, Relational, Logical, Assignment, Increment, Bitwise Operators.
+</div>
+<a class="button" href="chapter3.html">Open Chapter</a>
+</div>
+
+<div class="card">
+<div class="chapter">Chapter 4</div>
+<div class="title">Decision Making</div>
+<div class="desc">
+if, if-else, nested if, switch-case, conditional operator.
+</div>
+<a class="button" href="chapter4.html">Open Chapter</a>
+</div>
+
+<div class="card">
+<div class="chapter">Chapter 5</div>
+<div class="title">Loops</div>
+<div class="desc">
+for, while, do-while, break, continue, nested loops.
+</div>
+<a class="button" href="chapter5.html">Open Chapter</a>
+</div>
+
+<div class="card">
+<div class="chapter">Chapter 6</div>
+<div class="title">Functions</div>
+<div class="desc">
+Function declaration, definition, arguments, recursion.
+</div>
+<a class="button" href="chapter6.html">Open Chapter</a>
+</div>
+
+<div class="card">
+<div class="chapter">Chapter 7</div>
+<div class="title">Arrays & Strings</div>
+<div class="desc">
+1D Array, 2D Array, Character Arrays, String Functions.
+</div>
+<a class="button" href="chapter7.html">Open Chapter</a>
+</div>
+
+<div class="card">
+<div class="chapter">Chapter 8</div>
+<div class="title">Pointers</div>
+<div class="desc">
+Memory Address, Pointer Arithmetic, Pointer to Pointer.
+</div>
+<a class="button" href="chapter8.html">Open Chapter</a>
+</div>
+
+<div class="card">
+<div class="chapter">Chapter 9</div>
+<div class="title">Structures & Unions</div>
+<div class="desc">
+Structures, Nested Structures, Unions, typedef.
+</div>
+<a class="button" href="chapter9.html">Open Chapter</a>
+</div>
+
+<div class="card">
+<div class="chapter">Chapter 10</div>
+<div class="title">Dynamic Memory</div>
+<div class="desc">
+malloc(), calloc(), realloc(), free().
+</div>
+<a class="button" href="chapter10.html">Open Chapter</a>
+</div>
+
+<div class="card">
+<div class="chapter">Chapter 11</div>
+<div class="title">File Handling</div>
+<div class="desc">
+Reading and Writing Files, fopen(), fclose(), fprintf(), fscanf().
+</div>
+<a class="button" href="chapter11.html">Open Chapter</a>
+</div>
+
+<div class="card">
+<div class="chapter">Chapter 12</div>
+<div class="title">Embedded C</div>
+<div class="desc">
+Registers, Volatile, Memory Mapping, Interrupts, Bit Manipulation.
+</div>
+<a class="button" href="chapter12.html">Open Chapter</a>
+</div>
+
+</div>
+
+</div>
+
+<footer>
+
+Designed for Complete C Programming Training<br>
+Beginner ➜ Professional ➜ Embedded Engineer
+
+</footer>
+
+<script>
+
+const toggle=document.getElementById("themeSwitch");
+
+if(localStorage.getItem("theme")=="dark")
+{
+    document.body.classList.add("dark");
+    toggle.checked=true;
+}
+
+toggle.addEventListener("change",function(){
+
+    if(this.checked)
+    {
+        document.body.classList.add("dark");
+        localStorage.setItem("theme","dark");
+    }
+    else
+    {
+        document.body.classList.remove("dark");
+        localStorage.setItem("theme","light");
+    }
+
+});
+
+</script>
+
+</body>
+</html>

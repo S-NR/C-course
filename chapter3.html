@@ -114,7 +114,7 @@ on one or more operands (variables or values).</p>
 
 <h3>Example Program</h3>
 
-<pre><code class="language-c">#include&lt;stdio.h&gt;
+<pre><code>#include&lt;stdio.h&gt;
 
 int main()
 {
@@ -146,50 +146,55 @@ int main()
 
 <details><summary>Addition</summary><div class="content">
 
-<pre><code class="language-c">int a=10;
+<pre><code>int a=10;
 int b=5;
 printf("%d",a+b);
 </code></pre>
 
 <div class="output">
-15</div></details>
+15</div>
+</div></details>
 
 <details><summary>Subtraction</summary><div class="content">
 
-<pre><code class="language-c">printf("%d",a-b);
+<pre><code>printf("%d",a-b);
 </code></pre>
 
 <div class="output">
-5</div></details>
+5</div>
+</div></details>
 
 <details><summary>Multiplication</summary><div class="content">
 
-<pre><code class="language-c">printf("%d",a*b);
+<pre><code>printf("%d",a*b);
 </code></pre>
 
 <div class="output">
-50</div></details>
+50</div>
+</div></details>
 
 <details><summary>Division</summary><div class="content">
 
-<pre><code class="language-c">printf("%d",a/b);
+<pre><code>printf("%d",a/b);
 </code></pre>
 
 <div class="output">2</div>
+</div></details>
 
 <div class="important">
 <h4>Important</h4>
 <p>When both operands are integers, the fractional part is discarded.</p>
 </div>
 
-<pre><code class="language-c">printf("%d",7/2);
+<pre><code>printf("%d",7/2);
 </code></pre>
 
-<div class="output">3</div></details>
+<div class="output">3</div>
+</div></details>
 
 <details><summary>Floating Point Division</summary><div class="content">
 
-<pre><code class="language-c">float a=7;
+<pre><code>float a=7;
 float b=2;
 printf("%.2f",a/b);
 </code></pre>
@@ -237,7 +242,7 @@ int main()
 
 <p>Returns the remainder after division.</p>
 
-<pre><code class="language-c">printf("%d",10%3);</code></pre>
+<pre><code>printf("%d",10%3);</code></pre>
 
 <div class="output">1</div>
 
@@ -281,7 +286,7 @@ int main()
 
 <h3>Unary Minus Example</h3>
 
-<pre><code class="language-c">int a=5;
+<pre><code>int a=5;
 printf("%d",-a);
 </code></pre>
 
@@ -289,7 +294,7 @@ printf("%d",-a);
 
 <h3>sizeof Operator</h3>
 
-<pre><code class="language-c">int a;
+<pre><code>int a;
 printf("%d",sizeof(a));
 </code></pre>
 
@@ -316,7 +321,7 @@ increase or decrease a variable by one.</p>
 
 <h3>Pre Increment Example</h3>
 
-<pre><code class="language-c">int a = 5;
+<pre><code>int a = 5;
 printf("%d", ++a);</code></pre>
 
 <div class="output">6</div>
@@ -325,7 +330,7 @@ printf("%d", ++a);</code></pre>
 
 <h3>Post Increment Example</h3>
 
-<pre><code class="language-c">int a = 5;
+<pre><code>int a = 5;
 printf("%d", a++);
 </code></pre>
 
@@ -533,7 +538,6 @@ They are widely used in embedded systems, networking, and device programming.
 -------------
     0001</code></pre>
 
-<div class="output">1</div>
 <div class="output">1</div></div></details>
 
 <details><summary>Bitwise OR (|)</summary><div class="content">
@@ -601,7 +605,7 @@ They are widely used in embedded systems, networking, and device programming.
 
 <details><summary>3.10 Operator Precedence and Associativity</summary><div class="content">
 
-<p>Operator precedence determines which operation is performed first./p>
+<p>Operator precedence determines which operation is performed first.</p>
 
 <h3>Example</h3>
 

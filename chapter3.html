@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Chapter 3 - Operators in C</title>
+
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="contentStyles.css">
+
+</head>
+
+<body>
+
+<header>
+
+<h1>Chapter 3 - Operators in C</h1>
+    <!-- Chapter Progress -->
+<div class="progress-card">
+
+    <div class="progress-header">
+        <span class="progress-title">📖 Chapter Progress</span>
+        <span id="progressText">0%</span>
+    </div>
+
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <div class="progress-info">
+        <span id="completedTopics">0</span> /
+        <span id="totalTopics">0</span> Topics Completed
+    </div>
+
+</div>
+<p class="chapter-desc">
+Operators are symbols used to perform operations on variables and values.
+They form the foundation of calculations, comparisons, decision making,
+and bit manipulation in C programming.
+</p><br>
+<p>Expand each topic to learn.</p></header>
+
+</header>
+
+<nav class="chapter-nav">
+
+<ul>
+
+<li><a href="#intro">3.1 Introduction</a></li>
+
+<li><a href="#arithmetic">3.2 Arithmetic Operators</a></li>
+
+<li><a href="#unary">3.3 Unary Operators</a></li>
+
+<li><a href="#increment">3.4 Increment & Decrement</a></li>
+
+<li><a href="#relational">3.5 Relational Operators</a></li>
+
+<li><a href="#logical">3.6 Logical Operators</a></li>
+
+<li><a href="#assignment">3.7 Assignment Operators</a></li>
+
+<li><a href="#compound">3.8 Compound Assignment</a></li>
+
+<li><a href="#bitwise">3.9 Bitwise Operators</a></li>
+
+<li><a href="#precedence">3.10 Operator Precedence</a></li>
+
+<li><a href="#mistakes">3.11 Common Mistakes</a></li>
+
+<li><a href="#interview">3.12 Interview Questions</a></li>
+
+<li><a href="#summary">3.13 Summary</a></li>
+
+<li><a href="#quiz">3.14 Quiz</a></li>
+
+</ul>
+
+</nav>
+
+<main>
+<div class="controls">
+<button onclick="setAll(true)">Expand All</button>
+<button onclick="setAll(false)">Collapse All</button>
+</div>
+<!-- ===================================================== -->
+
+<section id="intro" class="content-section">
+
+<details open><summary>3.1 Introduction to Operators</summary><div class="content">
+<p>An <strong>operator</strong> is a symbol that performs a specific operation
+on one or more operands (variables or values).</p>
+
+<div class="note"><strong>Example</strong>
+<pre><code>a + b
+</code></pre>
+
+<p>
+<b>+</b> → Operator<br>
+<b>a</b> and <b>b</b> → Operands</p><br>
+
+</div><h3>Types of Operators</h3>
+
+<table>
+<tr><th>Operator Type</th><th>Examples</th></tr>
+<tr><td>Arithmetic</td><td>+, -, *, /, %</td></tr>
+<tr><td>Relational</td><td>==, !=, >, <, >=, <=</td></tr>
+<tr><td>Logical</td><td>&&, ||, !</td></tr>
+<tr><td>Assignment</td><td>=, +=, -=</td></tr>
+<tr><td>Increment / Decrement</td><td>++, --</td></tr>
+<tr><td>Bitwise</td><td>&, |, ^, ~, <<, >></td></tr>
+</table><br>
+
+<h3>Example Program</h3>
+
+<pre><code class="language-c">#include&lt;stdio.h&gt;
+
+int main()
+{
+    int a = 10;
+    int b = 5;
+    printf("Sum = %d", a+b);
+    return 0;
+}
+</code></pre>
+
+<div class="output">Sum = 15</div>
+</details></section>
+
+<!-- ===================================================== -->
+
+<section id="arithmetic" class="content-section">
+<details><summary>3.2 Arithmetic Operators</summary><div class="content">
+
+<p>Arithmetic operators are used to perform mathematical calculations.</p>
+
+<table>
+<tr><th>Operator</th><th>Description</th><th>Example</th></tr>
+<tr><td>+</td><td>Addition</td><td>a+b</td></tr>
+<tr><td>-</td><td>Subtraction</td><td>a-b</td></tr>
+<tr><td>*</td><td>Multiplication</td><td>a*b</td></tr>
+<tr><td>/</td><td>Division</td><td>a/b</td></tr>
+<tr><td>%</td><td>Modulus</td><td>a%b</td></tr>
+</table>
+
+<h3>Addition</h3>
+
+<pre><code class="language-c">int a=10;
+int b=5;
+printf("%d",a+b);
+</code></pre>
+
+<div class="output">
+15</div><br>
+
+<h3>Subtraction</h3>
+
+<pre><code class="language-c">printf("%d",a-b);
+</code></pre>
+
+<div class="output">
+5</div><br>
+
+<h3>Multiplication</h3>
+
+<pre><code class="language-c">printf("%d",a*b);
+</code></pre>
+
+<div class="output">
+50</div>
+
+<h3>Division</h3>
+
+<pre><code class="language-c">printf("%d",a/b);
+</code></pre>
+
+<div class="output">2</div>
+
+<div class="important">
+<h4>Important</h4>
+<p>When both operands are integers, the fractional part is discarded.</p>
+</div>
+
+<pre><code class="language-c">printf("%d",7/2);
+</code></pre>
+
+<div class="output">3</div>
+
+<h3>Floating Point Division</h3>
+
+<pre><code class="language-c">float a=7;
+float b=2;
+printf("%.2f",a/b);
+</code></pre>
+
+<div class="output">3.50</div>
+
+
+<h3>Modulus Operator (%)</h3>
+
+<p>Returns the remainder after division.</p>
+
+<pre><code class="language-c">printf("%d",10%3);</code></pre>
+
+<div class="output">1</div>
+
+<table>
+<tr><th>Expression</th><th>Result</th></tr>
+<tr><td>10 % 2</td><td>0</td></tr>
+<tr><td>9 % 2</td><td>1</td></tr>
+<tr><td>15 % 4</td><td>3</td></tr>
+</table>
+
+<div class="tip">
+
+<strong>Real Life Applications</strong>
+<ul>
+<li>Check Even / Odd</li>
+<li>Reverse Numbers</li>
+<li>Palindrome Programs</li>
+<li>Number Pattern Problems</li>
+</ul></div>
+
+</details></section>
+
+<!-- ===================================================== -->
+
+<section id="unary" class="content-section">
+
+<details><summary>3.3 Unary Operators</summary><div class="content">
+
+<p>Unary operators work on only one operand.</p>
+
+<table>
+<tr><th>Operator</th><th>Description</th></tr>
+<tr><td>+</td><td>Unary Plus</td></tr>
+<tr><td>-</td><td>Unary Minus</td></tr>
+<tr><td>++</td><td>Increment</td></tr>
+<tr><td>--</td><td>Decrement</td></tr>
+<tr><td>!</td><td>Logical NOT</td></tr>
+<tr><td>~</td><td>Bitwise Complement</td></tr>
+<tr><td>sizeof</td><td>Returns memory occupied</td></tr>
+</table>
+
+<h3>Unary Minus Example</h3>
+
+<pre><code class="language-c">int a=5;
+printf("%d",-a);
+</code></pre>
+
+<div class="output">-5</div>
+
+<h3>sizeof Operator</h3>
+
+<pre><code class="language-c">int a;
+printf("%d",sizeof(a));
+</code></pre>
+
+<div class="output">4</div>
+
+<div class="note">The sizeof operator returns the memory occupied by a variable or data type.
+</div>
+
+</details></section>
+
+<section id="increment" class="content-section">
+
+<details><summary>3.4 Increment and Decrement Operators</summary><div class="content">
+
+<p>Increment (<strong>++</strong>) and decrement (<strong>--</strong>) operators
+increase or decrease a variable by one.</p>
+
+<h3>Increment Operator (++ )</h3>
+
+<table><tr><th>Type</th><th>Description</th></tr>
+<tr><td>Pre Increment (++a)</td><td>Increment first, then use the value.</td></tr>
+<tr><td>Post Increment (a++)</td><td>Use the value first, then increment.</td></tr>
+</table>
+
+<h3>Pre Increment Example</h3>
+
+<pre><code class="language-c">int a = 5;
+printf("%d", ++a);</code></pre>
+
+<div class="output">6</div>
+
+<div class="note">The value of <strong>a</strong> becomes 6 before it is printed.</div>
+
+<h3>Post Increment Example</h3>
+
+<pre><code class="language-c">int a = 5;
+printf("%d", a++);
+</code></pre>
+
+<div class="output">5</div>
+
+<div class="note">
+The value is printed first. After execution, <strong>a = 6</strong>.
+</div>
+
+<h3>Decrement Operator (--)</h3>
+
+<table>
+<tr><th>Type</th><th>Description</th></tr>
+<tr><td>Pre Decrement (--a)</td><td>Decrease first, then use.</td></tr>
+<tr><td>Post Decrement (a--)</td><td>Use first, then decrease.</td></tr>
+</table>
+
+<div class="important">
+
+<h4>Remember</h4>
+<p>
+Pre operators modify the variable before use.
+Post operators use the current value first.
+</p>
+</div>
+</details></section>
+
+<!-- ===================================================== -->
+
+<section id="relational" class="content-section">
+
+<details><summary>3.5 Relational Operators</summary><div class="content">
+
+<p>Relational operators compare two values and always return either
+<strong>1 (True)</strong> or <strong>0 (False)</strong>.</p>
+
+<table>
+<tr><th>Operator</th><th>Description</th></tr>
+<tr><td>></td><td>Greater Than</td></tr>
+<tr><td><</td><td>Less Than</td></tr>
+<tr><td>>=</td><td>Greater Than or Equal</td></tr>
+<tr><td><=</td><td>Less Than or Equal</td></tr>
+<tr><td>==</td><td>Equal To</td></tr>
+<tr><td>!=</td><td>Not Equal To</td></tr>
+</table>
+
+<h3>Example</h3>
+
+<pre><code>int a = 5;
+int b = 10;
+printf("%d", a < b);
+</code></pre>
+
+<div class="output">1</div>
+
+<h3>Another Example</h3>
+
+<pre><code>printf("%d", 5 == 5);</code></pre>
+
+<div class="output">1</div>
+
+<pre><code>printf("%d", 5 != 5);</code></pre>
+<div class="output">0</div>
+
+<div class="tip">
+
+Relational operators are mainly used in
+
+<ul>
+<li>if statements</li>
+<li>switch statements</li>
+<li>loops</li>
+<li>conditional expressions</li>
+</ul>
+</div>
+
+</details></section>
+
+<section id="logical" class="content-section">
+
+<details><summary>3.6 Logical Operators</summary><div class="content">
+
+<p>Logical operators combine two or more conditions.</p>
+
+<table>
+<tr><th>Operator</th><th>Description</th></tr>
+<tr><td>&&</td><td>Logical AND</td></tr>
+<tr><td>||</td><td>Logical OR</td></tr>
+<tr><td>!</td><td>Logical NOT</td></tr>
+</table>
+
+<h3>Logical AND (&&)</h3>
+
+<pre><code>(5 > 2) && (10 > 4)</code></pre>
+
+<div class="output">1</div>
+
+<pre><code>(5 > 8) && (10 > 4)</code></pre>
+
+<div class="output">0</div>
+
+<h4>Truth Table</h4>
+
+<table>
+<tr><th>A</th><th>B</th><th>A && B</th></tr>
+<tr><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>0</td><td>1</td><td>0</td></tr>
+<tr><td>1</td><td>0</td><td>0</td></tr>
+<tr><td>1</td><td>1</td><td>1</td></tr>
+</table>
+
+<h3>Logical OR (||)</h3>
+
+<div class="tip">Only one condition needs to be true.</div>
+
+<table>
+<tr><th>A</th><th>B</th><th>A || B</th></tr>
+<tr><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>0</td><td>1</td><td>1</td></tr>
+<tr><td>1</td><td>0</td><td>1</td></tr>
+<tr><td>1</td><td>1</td><td>1</td></tr>
+</table>
+
+<h3>Logical NOT (!)</h3>
+
+<pre><code>!(5 > 3)</code></pre>
+
+<div class="output">0</div>
+
+</div></details></section>
+
+<section id="assignment" class="content-section">
+
+<details><summary>3.7 Assignment Operator</summary><div class="content">
+
+<p>The assignment operator (<strong>=</strong>) assigns a value to a variable.</p>
+
+<pre><code>int a;
+a = 25;
+</code></pre>
+
+<div class="note">
+The value on the right side is stored in the variable on the left side.
+</div>
+
+</div></details></section>
+
+
+<section id="compound" class="content-section">
+
+<details><summary>3.8 Compound Assignment Operators</summary><div class="content">
+
+<p>Compound assignment operators perform an operation and assignment in a single statement.</p>
+
+<table>
+<tr><th>Operator</th><th>Equivalent To</th></tr>
+<tr><td>+=</td><td>a = a + b</td></tr>
+<tr><td>-=</td><td>a = a - b</td></tr>
+<tr><td>*=</td><td>a = a * b</td></tr>
+<tr><td>/=</td><td>a = a / b</td></tr>
+<tr><td>%=</td><td>a = a % b</td></tr>
+</table>
+
+<h3>Example</h3>
+
+<pre><code>int a = 10;
+a += 5;
+printf("%d", a);
+</code></pre>
+
+<div class="output">15</div>
+
+<div class="important">
+
+<h4>Equivalent Statement</h4>
+
+<pre><code>a = a + 5;
+</code></pre>
+
+</div></details></section>
+
+<section id="bitwise" class="content-section">
+
+<details><summary>3.9 Bitwise Operators</summary><div class="content">
+
+<p>
+Bitwise operators perform operations on the binary representation of integers.
+They are widely used in embedded systems, networking, and device programming.
+</p>
+
+<table>
+<tr><th>Operator</th><th>Description</th></tr>
+<tr><td>&amp;</td><td>Bitwise AND</td></tr>
+<tr><td>|</td><td>Bitwise OR</td></tr>
+<tr><td>^</td><td>Bitwise XOR</td></tr>
+<tr><td>~</td><td>Bitwise Complement</td></tr>
+<tr><td>&lt;&lt;</td><td>Left Shift</td></tr>
+<tr><td>&gt;&gt;</td><td>Right Shift</td></tr>
+</table>
+
+<h3>Bitwise AND (&amp;)</h3>
+
+<pre><code>5 = 0101
+3 = 0011
+-------------
+    0001</code></pre>
+
+<div class="output">1</div>
+
+<h3>Bitwise OR (|)</h3>
+
+<pre><code>5 = 0101
+3 = 0011
+-------------
+    0111</code></pre>
+
+<div class="output">7</div>
+
+<h3>Bitwise XOR (^)</h3>
+
+<pre><code>
+5 = 0101
+3 = 0011
+-------------
+    0110
+</code></pre>
+
+<div class="output">6</div>
+
+<h3>Left Shift (&lt;&lt;)</h3>
+
+<pre><code>5 << 1
+0101
+1010</code></pre>
+
+<div class="output">10</div>
+
+<hr>
+
+<h3>Right Shift (&gt;&gt;)</h3>
+
+<pre><code>8 >> 1
+1000
+0100</code></pre>
+
+<div class="output">4</div>
+
+<div class="tip">
+
+<strong>Applications</strong>
+
+<ul>
+<li>Embedded Systems</li>
+<li>Device Drivers</li>
+<li>Networking</li>
+<li>Encryption</li>
+<li>Flags and Permissions</li>
+</ul>
+
+</div>
+
+</div></details></section>
+
+<!-- ===================================================== -->
+
+<section id="precedence" class="content-section">
+
+<details><summary>3.10 Operator Precedence and Associativity</summary><div class="content">
+
+<p>Operator precedence determines which operation is performed first./p>
+
+<h3>Example</h3>
+
+<pre><code>2 + 3 * 4</code></pre>
+
+<div class="output">14</div>
+
+<div class="note">
+Multiplication has higher precedence than addition.
+</div>
+
+<h3>Precedence (High → Low)</h3>
+
+<table>
+<tr><th>Level</th><th>Operators</th></tr>
+<tr><td>1</td><td>()</td></tr>
+<tr><td>2</td><td>Unary + - ++ -- ! sizeof</td></tr>
+<tr><td>3</td><td>* / %</td></tr>
+<tr><td>4</td><td>+ -</td></tr>
+<tr><td>5</td><td>&lt;&lt; &gt;&gt;</td></tr>
+<tr><td>6</td><td>&lt; &lt;= &gt; &gt;=</td></tr>
+<tr><td>7</td><td>== !=</td></tr>
+<tr><td>8</td><td>&amp;</td></tr>
+<tr><td>9</td><td>^</td></tr>
+<tr><td>10</td><td>|</td></tr>
+<tr><td>11</td><td>&amp;&amp;</td></tr>
+<tr><td>12</td><td>||</td></tr>
+<tr><td>13</td><td>= += -= *= /= %=</td></tr>
+</table>
+
+<div class="important">
+Assignment operators are evaluated from <strong>Right to Left</strong>.
+</div>
+
+<pre><code>a = b = c = 5;</code></pre>
+
+</div></details></section>
+
+<!-- ===================================================== -->
+
+<section id="mistakes" class="content-section">
+
+<details><summary>3.11 Common Mistakes</summary><div class="content">
+
+<h3>1. Using = instead of ==</h3>
+
+<pre><code>if(a = 5)</code></pre>
+
+<div class="warning">
+Incorrect
+</div>
+
+<pre><code>if(a == 5)</code></pre>
+
+<div class="tip">
+Correct
+
+</div>
+
+<h3>2. Integer Division</h3>
+
+<pre><code>5 / 2</code></pre>
+
+<div class="output">2</div>
+
+<h3>3. Confusing Post Increment</h3>
+
+<pre><code>a++</code></pre>
+
+<div class="note">
+Current value is used first, then incremented.
+</div>
+
+<h3>4. Using % with float values</h3>
+
+<pre><code>5.5 % 2</code></pre>
+
+<div class="warning">
+Invalid in C
+</div>
+
+</div></details></section>
+
+<!-- ===================================================== -->
+
+<section id="interview" class="content-section">
+
+<details><summary>3.12 Interview Questions</summary><div class="content">
+
+<ol>
+<li>What is an operator?</li>
+<li>Difference between ++a and a++?</li>
+<li>Difference between = and ==?</li>
+<li>Difference between &amp; and &amp;&amp;?</li>
+<li>What is operator precedence?</li>
+<li>Explain bitwise operators.</li>
+<li>Difference between Logical OR and Bitwise OR?</li>
+<li>What is the output of 10 % 3?</li>
+<li>What is the output of 7 / 2?</li>
+<li>Can modulus operator be used with float values?</li>
+</ol>
+
+</div></details></section>
+
+<!-- ===================================================== -->
+
+<section id="summary" class="content-section">
+<details><summary>3.13 Summary</summary><div class="content"></div>
+<h2>3.13 Summary</h2>
+
+<div class="summary">
+
+<ul>
+<li>Operators perform operations on operands.</li>
+<li>Arithmetic operators perform mathematical calculations.</li>
+<li>Relational operators compare values.</li>
+<li>Logical operators combine conditions.</li>
+<li>Assignment operators assign values.</li>
+<li>Compound assignment operators simplify expressions.</li>
+<li>Increment and decrement operators modify variables by one.</li>
+<li>Bitwise operators work on binary data.</li>
+<li>Operator precedence determines evaluation order.</li>
+</ul>
+
+</div>
+
+</div></details></section>
+
+<!-- ===================================================== -->
+
+<section id="quiz" class="content-section">
+
+<details><summary>3.14 Quiz</summary><div class="content">
+
+<h3>Question 1</h3>
+
+<p>What is the output?</p>
+
+<pre><code>printf("%d",10%4);</code></pre>
+
+<ul>
+<li>A. 1</li>
+<li>B. 2</li>
+<li>C. 3</li>
+<li>D. 4</li>
+</ul>
+
+<div class="output">Answer : B</div>
+
+<h3>Question 2</h3>
+
+<p>Which operator checks equality?</p>
+
+<ul>
+<li>A. =</li>
+<li>B. ==</li>
+<li>C. !=</li>
+<li>D. >=</li>
+</ul>
+
+<div class="output">Answer : B</div>
+
+<h3>Question 3</h3>
+
+<p>What is the output?</p>
+
+<pre><code>int a = 5;
+printf("%d", ++a);
+</code></pre>
+
+<ul>
+<li>A. 5</li>
+<li>B. 6</li>
+<li>C. 4</li>
+<li>D. 7</li>
+</ul>
+
+<div class="output">
+Answer : B
+</div>
+
+<h3>Question 4</h3>
+
+<p>Which operator performs Logical AND?</p>
+
+<ul>
+<li>A. &amp;</li>
+<li>B. &amp;&amp;</li>
+<li>C. ||</li>
+<li>D. !</li>
+</ul>
+
+<div class="output">Answer : B</div>
+
+<h3>Question 5</h3>
+
+<p>Which operator performs Bitwise OR?</p>
+
+<ul>
+<li>A. |</li>
+<li>B. ||</li>
+<li>C. &amp;</li>
+<li>D. ^</li>
+</ul>
+
+<div class="output">Answer : A</div>
+
+</div></details></section>
+
+</main>
+
+<footer>
+
+<p>
+End of Chapter 3 - Operators in C
+</p>
+
+</footer>
+
+</body>
+
+</html>

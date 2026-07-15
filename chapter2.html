@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chapter 2 - Variables & Data Types</title>
+ <link rel="stylesheet" href="contentStyles.css" />
+ <link rel="stylesheet" href="styles.css" />
+
+</head>
+<body>
+
+<header><h1>Chapter 2 : Variables & Data Types</h1>
+<div class="progress-card">
+
+    <div class="progress-header">
+        <span class="progress-title">📖 Chapter Progress</span>
+        <span id="progressText">0%</span>
+    </div>
+
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <div class="progress-info">
+        <span id="completedTopics">0</span> /
+        <span id="totalTopics">0</span> Topics Completed
+    </div>
+</div>
+
+<p>Expand each topic to learn.</p></header>
+<main>
+<div class="controls">
+<button onclick="setAll(true)">Expand All</button>
+<button onclick="setAll(false)">Collapse All</button>
+</div>
+
+<p>
+Variables are one of the most important concepts in programming.
+A variable is a named memory location used to store data that can change during program execution.
+</p><br>
+
+<details open><summary>2.1 What is a Variable?</summary><div class="content">
+<p>Think of a variable as a container or box that stores information.
+Instead of remembering the memory address, we give the storage location a meaningful name.
+</p>
+
+<br><p><b>Example:</b></p>
+
+<pre>
+    int age = 25;
+</pre>
+
+<p>Here,
+<ul>
+<li><b>int</b> → Data type</li>
+<li><b>age</b> → Variable name</li>
+<li><b>25</b> → Value stored</li>
+</ul>
+</p>
+</div></details>
+
+<details><summary>2.2 Why Do We Need Variables?</summary><div class="content">
+
+<ul>
+<li>Store user input</li>
+<li>Perform calculations</li>
+<li>Store results</li>
+<li>Reuse values multiple times</li>
+<li>Make programs dynamic</li>
+</ul>
+
+<br><p><b>Without variables:</b></p>
+<pre>
+    printf("10");
+    printf("20");
+</pre>
+<br><p><b>With variables:</b></p>
+<pre>
+    int number = 10;
+    printf("%d", number);
+</pre>
+</div></details>
+
+<details><summary>2.3 Rules for Naming Variables</summary><div class="content">
+
+<table border="1.5" cellpadding="8">
+<tr>
+<th>Rule</th>
+<th>Example</th>
+</tr>
+
+<tr>
+<td>Must begin with letter or underscore</td>
+<td>age, _total ✔</td>
+</tr>
+
+<tr>
+<td>Cannot start with number</td>
+<td>2age ✘</td>
+</tr>
+
+<tr>
+<td>No spaces</td>
+<td>student_name ✔</td>
+</tr>
+
+<tr>
+<td>No special characters</td>
+<td>price$ ✘</td>
+</tr>
+
+<tr>
+<td>Case Sensitive</td>
+<td>Age ≠ age</td>
+</tr>
+
+<tr>
+<td>Cannot use keywords</td>
+<td>int, float, return ✘</td>
+</tr>
+
+</table>
+</div></details>
+
+<details><summary>2.4 Data Types in C</summary><div class="content">
+
+<p>
+A data type tells the compiler what type of data a variable can store.
+</p>
+
+<table border="1" cellpadding="8">
+
+<tr>
+<th>Data Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+
+<tr>
+<td>int</td>
+<td>Integer numbers</td>
+<td>25</td>
+</tr>
+
+<tr>
+<td>float</td>
+<td>Decimal numbers</td>
+<td>10.5</td>
+</tr>
+
+<tr>
+<td>double</td>
+<td>Large decimal values</td>
+<td>12345.6789</td>
+</tr>
+
+<tr>
+<td>char</td>
+<td>Single character</td>
+<td>'A'</td>
+</tr>
+
+</table>
+
+</div></details>
+
+<details><summary>2.5 Declaring Variables</summary><div class="content">
+
+<p>Syntax:</p>
+
+<pre>
+datatype variableName;
+</pre>
+
+Example:
+
+<pre>
+int age;
+float salary;
+char grade;
+</pre>
+</div></details>
+
+<details><summary>2.6 Initializing Variables</summary><div class="content">
+
+<p>
+Assigning a value while declaring is called initialization.
+</p>
+
+<pre>
+int age = 21;
+float salary = 15000.50;
+char grade = 'A';
+</pre>
+
+</div></details>
+
+<details><summary>2.7 Multiple Variable Declaration</summary><div class="content">
+
+<pre>
+int a, b, c;
+
+a = 10;
+b = 20;
+c = 30;
+</pre>
+
+Or
+
+<pre>
+int a = 10, b = 20, c = 30;
+</pre>
+
+</div></details>
+<details><summary>2.8 Constants</summary><div class="content">
+
+<p>
+A constant is a value that cannot be changed during program execution.
+</p>
+
+<pre>
+const float PI = 3.14159;
+</pre>
+
+Trying to change PI later will produce an error.
+
+</div></details>
+<details><summary>2.9 sizeof() Operator</summary><div class="content">
+
+<p>
+The sizeof operator returns the size of a data type in bytes.
+</p>
+
+<pre>
+#include<stdio.h>
+
+int main()
+{
+    printf("%d", sizeof(int));
+    return 0;
+}
+</pre>
+
+Possible Output
+
+<pre>
+4
+</pre>
+
+</div></details>
+
+<details><summary>2.10 Format Specifiers</summary><div class="content">
+
+<table border="1" cellpadding="8">
+
+<tr>
+<th>Specifier</th>
+<th>Used For</th>
+</tr>
+
+<tr>
+<td>%d</td>
+<td>int</td>
+</tr>
+
+<tr>
+<td>%f</td>
+<td>float</td>
+</tr>
+
+<tr>
+<td>%lf</td>
+<td>double</td>
+</tr>
+
+<tr>
+<td>%c</td>
+<td>char</td>
+</tr>
+
+<tr>
+<td>%s</td>
+<td>String</td>
+</tr>
+
+</table>
+
+Example
+
+<pre>
+int age = 20;
+printf("%d", age);
+</pre>
+
+
+</div></details>
+
+<details><summary>2.11 Complete Program Example</summary><div class="content">
+
+<pre>
+#include<stdio.h>
+
+int main()
+{
+    int age = 22;
+    float marks = 89.5;
+    char grade = 'A';
+
+    printf("Age = %d\n", age);
+    printf("Marks = %.1f\n", marks);
+    printf("Grade = %c\n", grade);
+
+    return 0;
+}
+</pre>
+
+Output
+
+<pre>
+Age = 22
+Marks = 89.5
+Grade = A
+</pre>
+
+
+</div></details>
+
+<details><summary>2.12 Common Beginner Mistakes</summary><div class="content">
+
+<ul>
+<li>Using variable before declaring it.</li>
+<li>Using wrong format specifier.</li>
+<li>Forgetting semicolon.</li>
+<li>Using reserved keywords as variable names.</li>
+<li>Not initializing variables.</li>
+</ul>
+
+</div></details>
+
+<details><summary>2.13 Interview Questions</summary><div class="content">
+
+<ol>
+
+<li>What is a variable?</li>
+
+<li>What is a data type?</li>
+
+<li>Difference between float and double?</li>
+
+<li>Difference between declaration and initialization?</li>
+
+<li>Why are variables needed?</li>
+
+<li>Can variable names start with numbers?</li>
+
+<li>What does sizeof() do?</li>
+
+<li>Difference between char and string?</li>
+
+<li>What are constants?</li>
+
+<li>What is a format specifier?</li>
+
+</ol>
+</div></details>
+
+<details><summary>2.14 Practice Programs</summary><div class="content">
+
+<ol>
+
+<li>Store your age and print it.</li>
+
+<li>Store your name, age and marks.</li>
+
+<li>Find size of int, float and char.</li>
+
+<li>Declare multiple variables.</li>
+
+<li>Use const to store PI.</li>
+
+</ol>
+</div></details>
+
+
+<details><summary>Chapter Summary</summary><div class="content">
+
+<ul>
+
+<li>Variables store data.</li>
+
+<li>Every variable has a data type.</li>
+
+<li>C supports int, float, double and char.</li>
+
+<li>Variables can be declared and initialized.</li>
+
+<li>Constants cannot be modified.</li>
+
+<li>Use correct format specifiers with printf().</li>
+
+<li>sizeof() returns memory occupied by a data type.</li>
+
+</ul>
+</div></details>
+
+</main>
+<script>
+function setAll(open){document.querySelectorAll('details').forEach(d=>d.open=open);}
+</script>
+
+<script>
+
+function updateProgress(){
+
+    const sections=document.querySelectorAll("details");
+
+    const total=sections.length;
+
+    let completed=0;
+
+    sections.forEach(section=>{
+
+        if(section.open)
+            completed++;
+
+    });
+
+    const percent=Math.round((completed/total)*100);
+
+    document.getElementById("progressFill").style.width=percent+"%";
+
+    document.getElementById("progressText").innerHTML=percent+"%";
+
+    document.getElementById("completedTopics").innerHTML=completed;
+
+    document.getElementById("totalTopics").innerHTML=total;
+
+}
+
+document.querySelectorAll("details").forEach(section=>{
+
+    section.addEventListener("toggle",updateProgress);
+
+});
+
+updateProgress();
+
+</script>
+</body></html>

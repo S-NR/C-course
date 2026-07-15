@@ -111,3 +111,144 @@ pre{background:#272822;color:#f8f8f2;padding:10px;border-radius:6px;overflow:aut
 .connector{display:flex;justify-content:center;color:#888;font-size:26px;line-height:1.1;margin:6px 0}
 pre{background:#272822;color:#f8f8f2;padding:12px;border-radius:6px;overflow:auto}
 @keyframes point{0%,100%{transform:translateX(0)}50%{transform:translateX(8px)}}
+
+/* Progress Card */
+
+.progress-card{
+
+    background:white;
+    border-radius:12px;
+    padding:18px;
+
+    margin:20px 0;
+
+    box-shadow:0 3px 10px rgba(0,0,0,.12);
+
+}
+
+.progress-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    font-size:18px;
+    font-weight:bold;
+
+    margin-bottom:10px;
+
+}
+
+.progress-title{
+
+    color:#0d47a1;
+
+}
+
+.progress-bar{
+
+    width:100%;
+
+    height:18px;
+
+    background:#dfe8f6;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+.progress-fill{
+
+    width:0%;
+
+    height:100%;
+
+    background:linear-gradient(90deg,#4CAF50,#00C853);
+
+    transition:.6s;
+
+}
+
+.progress-info{
+
+    margin-top:10px;
+
+    text-align:right;
+
+    color:#555;
+
+    font-size:14px;
+
+}
+
+table{
+border-collapse:collapse;
+width:100%;
+}
+
+th,td{
+border:1px solid #ccc;
+padding:10px;
+}
+.output {
+    background: #f5f5f5;
+    border-left: 5px solid #28a745;
+    padding: 12px 15px;
+    margin: 10px 0 25px;
+    border-radius: 5px;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 16px;
+    color: #1815c0;
+}
+
+.output::before {
+    content: "Output";
+    display: block;
+    font-weight: bold;
+    color: #28a745;
+    margin-bottom: 8px;
+}
+
+pre {
+    background: #272822;
+    color: #f8f8f2;
+    padding: 15px;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 10px 0;
+}
+
+code {
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 15px;
+    white-space: pre;
+}
+.important {
+    background: #fff3cd;
+    border-left: 6px solid #ffc107;
+    color: #856404;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 6px;
+}
+
+.important h4 {
+    margin-top: 0;
+    color: #856404;
+}
+
+/* Tip Box */
+.tip {
+    background-color: #e8f5e9;
+    border-left: 6px solid #28a745;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 6px;
+    color: #155724;
+}
+
+.tip strong {
+    color: #0b5e20;
+}

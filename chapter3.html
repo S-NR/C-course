@@ -144,7 +144,7 @@ int main()
 <tr><td>%</td><td>Modulus</td><td>a%b</td></tr>
 </table>
 
-<h3>Addition</h3>
+<details><summary>Addition</summary><div class="content">
 
 <pre><code class="language-c">int a=10;
 int b=5;
@@ -152,25 +152,25 @@ printf("%d",a+b);
 </code></pre>
 
 <div class="output">
-15</div><br>
+15</div></details>
 
-<h3>Subtraction</h3>
+<details><summary>Subtraction</summary><div class="content">
 
 <pre><code class="language-c">printf("%d",a-b);
 </code></pre>
 
 <div class="output">
-5</div><br>
+5</div></details>
 
-<h3>Multiplication</h3>
+<details><summary>Multiplication</summary><div class="content">
 
 <pre><code class="language-c">printf("%d",a*b);
 </code></pre>
 
 <div class="output">
-50</div>
+50</div></details>
 
-<h3>Division</h3>
+<details><summary>Division</summary><div class="content">
 
 <pre><code class="language-c">printf("%d",a/b);
 </code></pre>
@@ -185,19 +185,55 @@ printf("%d",a+b);
 <pre><code class="language-c">printf("%d",7/2);
 </code></pre>
 
-<div class="output">3</div>
+<div class="output">3</div></details>
 
-<h3>Floating Point Division</h3>
+<details><summary>Floating Point Division</summary><div class="content">
 
 <pre><code class="language-c">float a=7;
 float b=2;
 printf("%.2f",a/b);
 </code></pre>
 
-<div class="output">3.50</div>
+<div class="output">3.50</div></details>
 
+<details><summary>Division by Zero</summary><div class="content">
 
-<h3>Modulus Operator (%)</h3>
+<p>Division by zero is not allowed in C.</p>
+
+<pre><code>int a = 10;
+int b = 0;
+printf("%d", a / b);</code></pre>
+
+<div class="warning">
+<strong>Warning:</strong>
+Division by zero results in <strong>undefined behavior</strong>.
+The program may terminate unexpectedly or produce an unpredictable result.
+</div>
+
+<div class="important">
+Always check whether the divisor is zero before performing division.
+</div>
+
+<h3>Safe Division Example</h3>
+<pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a = 10;
+    int b = 0;
+
+    if(b != 0)
+        printf("%d", a / b);
+    else
+        printf("Division by zero is not possible.");
+
+    return 0;
+}</code></pre>
+
+<div class="output">Division by zero is not possible.</div>
+</div></details>
+
+<details><summary>Modulus Operator (%)</summary><div class="content">
 
 <p>Returns the remainder after division.</p>
 
@@ -222,7 +258,7 @@ printf("%.2f",a/b);
 <li>Number Pattern Problems</li>
 </ul></div>
 
-</details></section>
+</div></details></section>
 
 <!-- ===================================================== -->
 
@@ -271,7 +307,7 @@ printf("%d",sizeof(a));
 <p>Increment (<strong>++</strong>) and decrement (<strong>--</strong>) operators
 increase or decrease a variable by one.</p>
 
-<h3>Increment Operator (++ )</h3>
+<details><summary>Increment Operator (++ )</summary><div class="content">
 
 <table><tr><th>Type</th><th>Description</th></tr>
 <tr><td>Pre Increment (++a)</td><td>Increment first, then use the value.</td></tr>
@@ -298,14 +334,15 @@ printf("%d", a++);
 <div class="note">
 The value is printed first. After execution, <strong>a = 6</strong>.
 </div>
+</details>
 
-<h3>Decrement Operator (--)</h3>
+<details><summary>Decrement Operator (--)</summary><div class="content">
 
 <table>
 <tr><th>Type</th><th>Description</th></tr>
 <tr><td>Pre Decrement (--a)</td><td>Decrease first, then use.</td></tr>
 <tr><td>Post Decrement (a--)</td><td>Use first, then decrease.</td></tr>
-</table>
+</table></details>
 
 <div class="important">
 
@@ -314,8 +351,7 @@ The value is printed first. After execution, <strong>a = 6</strong>.
 Pre operators modify the variable before use.
 Post operators use the current value first.
 </p>
-</div>
-</details></section>
+</div></section>
 
 <!-- ===================================================== -->
 
@@ -381,7 +417,7 @@ Relational operators are mainly used in
 <tr><td>!</td><td>Logical NOT</td></tr>
 </table>
 
-<h3>Logical AND (&&)</h3>
+<details><summary>Logical AND (&&)</summary><div class="content">
 
 <pre><code>(5 > 2) && (10 > 4)</code></pre>
 
@@ -399,9 +435,9 @@ Relational operators are mainly used in
 <tr><td>0</td><td>1</td><td>0</td></tr>
 <tr><td>1</td><td>0</td><td>0</td></tr>
 <tr><td>1</td><td>1</td><td>1</td></tr>
-</table>
+</table></div></details>
 
-<h3>Logical OR (||)</h3>
+<details><summary>Logical OR (||)</summary><div class="content">
 
 <div class="tip">Only one condition needs to be true.</div>
 
@@ -411,13 +447,13 @@ Relational operators are mainly used in
 <tr><td>0</td><td>1</td><td>1</td></tr>
 <tr><td>1</td><td>0</td><td>1</td></tr>
 <tr><td>1</td><td>1</td><td>1</td></tr>
-</table>
+</table></div></details>
 
-<h3>Logical NOT (!)</h3>
+<details><summary>Logical NOT (!)</summary><div class="content">
 
 <pre><code>!(5 > 3)</code></pre>
 
-<div class="output">0</div>
+<div class="output">0</div></div></details>
 
 </div></details></section>
 
@@ -490,7 +526,7 @@ They are widely used in embedded systems, networking, and device programming.
 <tr><td>&gt;&gt;</td><td>Right Shift</td></tr>
 </table>
 
-<h3>Bitwise AND (&amp;)</h3>
+<details><summary>Bitwise AND (&amp;)</summary><div class="content">
 
 <pre><code>5 = 0101
 3 = 0011
@@ -498,15 +534,17 @@ They are widely used in embedded systems, networking, and device programming.
     0001</code></pre>
 
 <div class="output">1</div>
+<div class="output">1</div></div></details>
 
-<h3>Bitwise OR (|)</h3>
-
+<details><summary>Bitwise OR (|)</summary><div class="content">
 <pre><code>5 = 0101
 3 = 0011
 -------------
     0111</code></pre>
 
-<div class="output">7</div>
+<div class="output">7</div></div></details>
+
+<details><summary>Bitwise XOR (^)</summary><div class="content">
 
 <h3>Bitwise XOR (^)</h3>
 
@@ -517,7 +555,9 @@ They are widely used in embedded systems, networking, and device programming.
     0110
 </code></pre>
 
-<div class="output">6</div>
+<div class="output">6</div></div></details>
+
+<details><summary>Left Shift (&lt;&lt;)</summary><div class="content">
 
 <h3>Left Shift (&lt;&lt;)</h3>
 
@@ -525,7 +565,9 @@ They are widely used in embedded systems, networking, and device programming.
 0101
 1010</code></pre>
 
-<div class="output">10</div>
+<div class="output">10</div></div></details>
+
+<details><summary>Right Shift (&gt;&gt;)</summary><div class="content">
 
 <hr>
 
@@ -535,7 +577,7 @@ They are widely used in embedded systems, networking, and device programming.
 1000
 0100</code></pre>
 
-<div class="output">4</div>
+<div class="output">4</div></div></details>
 
 <div class="tip">
 
@@ -778,6 +820,48 @@ End of Chapter 3 - Operators in C
 </p>
 
 </footer>
+<script>
+function setAll(open){document.querySelectorAll('details').forEach(d=>d.open=open);}
+</script>
+
+<script>
+
+function updateProgress(){
+
+    const sections=document.querySelectorAll("details");
+
+    const total=sections.length;
+
+    let completed=0;
+
+    sections.forEach(section=>{
+
+        if(section.open)
+            completed++;
+
+    });
+
+    const percent=Math.round((completed/total)*100);
+
+    document.getElementById("progressFill").style.width=percent+"%";
+
+    document.getElementById("progressText").innerHTML=percent+"%";
+
+    document.getElementById("completedTopics").innerHTML=completed;
+
+    document.getElementById("totalTopics").innerHTML=total;
+
+}
+
+document.querySelectorAll("details").forEach(section=>{
+
+    section.addEventListener("toggle",updateProgress);
+
+});
+
+updateProgress();
+
+</script>
 
 </body>
 

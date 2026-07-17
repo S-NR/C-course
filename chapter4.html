@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Chapter 3 - Operators in C</title>
+
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="contentStyles.css">
+
+</head>
+
+<body>
+
+<header>
+
+<h1>Chapter 4 – Decision Making</h1>
+    <!-- Chapter Progress -->
+<div class="progress-card">
+
+    <div class="progress-header">
+        <span class="progress-title">📖 Chapter Progress</span>
+        <span id="progressText">0%</span>
+    </div>
+
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <div class="progress-info">
+        <span id="completedTopics">0</span> /
+        <span id="totalTopics">0</span> Topics Completed
+    </div>
+
+</div>
+<p class="chapter-desc">
+Decision making statements allow a program to choose different paths
+based on conditions. In this chapter, you'll learn how to use
+if, if-else, else-if ladder, nested if, switch-case, and the
+conditional (ternary) operator in C.
+</p><br>
+<p>Expand each topic to learn.</p></header>
+
+</header>
+
+<nav class="chapter-nav">
+
+<ul>
+
+<li><a href="#intro">4.1 Introduction</a></li>
+<li><a href="#if">4.2 if Statement</a></li>
+<li><a href="#ifelse">4.3 if-else Statement</a></li>
+<li><a href="#elseif">4.4 else-if Ladder</a></li>
+<li><a href="#nestedif">4.5 Nested if</a></li>
+<li><a href="#switch">4.6 switch Statement</a></li>
+<li><a href="#ternary">4.7 Conditional (Ternary) Operator</a></li>
+<li><a href="#difference">4.8 if vs switch</a></li>
+<li><a href="#examples">4.9 Programming Examples</a></li>
+<li><a href="#mistakes">4.10 Common Mistakes</a></li>
+<li><a href="#bestpractices">4.11 Best Practices</a></li>
+<li><a href="#summary">4.12 Summary</a></li>
+<li><a href="#quiz">4.13 Quiz</a></li>
+<li><a href="#exercise">4.14 Programming Exercises</a></li>
+
+</ul>
+
+</nav>
+
+<main>
+<div class="controls">
+<button onclick="setAll(true)">Expand All</button>
+<button onclick="setAll(false)">Collapse All</button>
+</div>
+<!-- ===================================================== -->
+
+<section id="intro" class="content-section">
+
+<details open><summary>4.1 Introduction - What is Decision Making?</summary><div class="content">
+<p>Programs don't always execute every statement.<br>Sometimes they must decide:
+    <ul>
+        <li>Is the number positive?</li>
+        <li>Is age greater than 18?</li>
+        <li>Is the user logged in?</li>
+        <li>Which menu option did the user choose?</li>
+        <li>Is password correct?</li>
+    </ul>
+    Decision making allows the program to choose different paths.
+</p>
+
+<div class="note"><strong>Example</strong>
+<pre><code>If it is raining
+    Take umbrella
+Else
+    Go normally
+</code></pre>
+<p>Programming works exactly the same way.</p>
+
+</div>
+
+<h3>Flow Diagram</h3>
+
+<div class="flow">
+
+    <div class="box">Condition ?</div>
+
+    <div class="arrow">↓</div>
+
+    <div class="flow-split">
+
+        <div class="flow-branch">
+            <div class="box success">True</div>
+            <div class="arrow">↓</div>
+            <div class="box">Execute Block A</div>
+        </div>
+
+        <div class="flow-branch">
+            <div class="box danger">False</div>
+            <div class="arrow">↓</div>
+            <div class="box">Execute Block B</div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="tip">
+💡 <strong>Memory Tip</strong><br>
+Decision Making means choosing one path from multiple possible paths based on a condition.
+</div>
+
+</div></details>
+
+</section>
+
+<!-- ===================================================== -->
+
+<section id="if" class="content-section">
+
+<details>
+
+<summary>4.2 if Statement</summary>
+
+<div class="content">
+
+<p>
+The <strong>if</strong> statement executes a block of code only when the specified condition evaluates to <strong>true</strong>.
+If the condition is false, the statements inside the if block are skipped.
+</p>
+
+<h3>Syntax</h3>
+
+<pre><code>if(condition)
+{
+    statements;
+}
+</code></pre>
+
+<h3>Flow</h3>
+
+<div class="flow-box">
+
+<div class="flow-item">Condition ?</div>
+
+<div class="flow-arrow">↓</div>
+
+<div class="flow-split">
+
+<div class="flow-branch">
+
+<div class="flow-item success">True</div>
+
+<div class="flow-arrow">↓</div>
+
+<div class="flow-item">Execute Statements</div>
+
+</div>
+
+<div class="flow-branch">
+
+<div class="flow-item danger">False</div>
+
+<div class="flow-arrow">↓</div>
+
+<div class="flow-item">Skip Statements</div>
+
+</div>
+
+</div>
+
+</div>
+
+<h3>Example</h3>
+
+<pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int age = 20;
+
+    if(age >= 18)
+    {
+        printf("Eligible to Vote");
+    }
+
+    return 0;
+}
+</code></pre>
+
+<div class="output-box">
+
+<strong>Output</strong>
+
+<pre>Eligible to Vote</pre>
+
+</div>
+
+<div class="example-box">
+
+<strong>Another Example</strong>
+
+<pre><code>int num = -5;
+
+if(num > 0)
+{
+    printf("Positive Number");
+}
+</code></pre>
+
+<strong>Output</strong>
+
+<pre>No Output</pre>
+
+</div>
+
+<div class="memory-box">
+
+💡 <strong>Remember</strong>
+
+<ul>
+
+<li>If condition is TRUE → Execute block.</li>
+
+<li>If condition is FALSE → Skip block.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</details>
+
+</section>
+
+<!-- ===================================================== -->
+
+<section id="ifelse" class="content-section">
+
+<details>
+
+<summary>4.3 if-else Statement</summary>
+
+<div class="content">
+
+<p>
+The <strong>if-else</strong> statement is used when there are exactly two possible outcomes.
+One block executes when the condition is true, and the other executes when it is false.
+</p>
+
+<h3>Syntax</h3>
+
+<pre><code>if(condition)
+{
+    statements;
+}
+else
+{
+    statements;
+}
+</code></pre>
+
+<h3>Example</h3>
+
+<pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int age = 15;
+
+    if(age >= 18)
+    {
+        printf("Adult");
+    }
+    else
+    {
+        printf("Minor");
+    }
+
+    return 0;
+}
+</code></pre>
+
+<div class="output-box">
+
+<strong>Output</strong>
+
+<pre>Minor</pre>
+
+</div>
+
+<div class="note">
+
+<strong>Example:</strong>
+
+<pre><code>int number = 10;
+
+if(number % 2 == 0)
+{
+    printf("Even");
+}
+else
+{
+    printf("Odd");
+}
+</code></pre>
+
+<strong>Output</strong>
+
+<pre>Even</pre>
+
+</div>
+
+<div class="memory-box">
+
+💡 <strong>Tip</strong>
+
+Only one block (if or else) will execute.
+
+</div>
+
+</div>
+
+</details>
+
+</section>
+
+
+
+
+
+
+
+</main>
+
+<footer>
+
+<p>
+End of Chapter 3 - Operators in C
+</p>
+
+</footer>
+<script>
+function setAll(open){document.querySelectorAll('details').forEach(d=>d.open=open);}
+</script>
+
+<script>
+
+function updateProgress(){
+
+    const sections=document.querySelectorAll("details");
+
+    const total=sections.length;
+
+    let completed=0;
+
+    sections.forEach(section=>{
+
+        if(section.open)
+            completed++;
+
+    });
+
+    const percent=Math.round((completed/total)*100);
+
+    document.getElementById("progressFill").style.width=percent+"%";
+
+    document.getElementById("progressText").innerHTML=percent+"%";
+
+    document.getElementById("completedTopics").innerHTML=completed;
+
+    document.getElementById("totalTopics").innerHTML=total;
+
+}
+
+document.querySelectorAll("details").forEach(section=>{
+
+    section.addEventListener("toggle",updateProgress);
+
+});
+
+updateProgress();
+
+function toggleAnswer(button){
+
+    const answer = button.nextElementSibling;
+
+    if(answer.style.display === "block"){
+
+        answer.style.display = "none";
+        button.innerHTML = "Show Answer";
+
+    }
+    else{
+
+        answer.style.display = "block";
+        button.innerHTML = "Hide Answer";
+
+    }
+}
+
+function checkAnswer(questionName, correctAnswer, button, explanation)
+{
+    const selected = document.querySelector(
+        'input[name="' + questionName + '"]:checked'
+    );
+
+    const result = button.nextElementSibling;
+
+    if(selected == null)
+    {
+        result.style.display = "block";
+        result.className = "answer-box wrong";
+        result.innerHTML = "⚠ Please select an answer.";
+        return;
+    }
+
+    if(selected.value === correctAnswer)
+    {
+        result.style.display = "block";
+        result.className = "answer-box correct";
+
+        result.innerHTML =
+        "✅ <strong>Correct!</strong><br><br>" +
+        "<strong>Explanation:</strong><br>" +
+        explanation;
+    }
+    else
+    {
+        result.style.display = "block";
+        result.className = "answer-box wrong";
+
+        result.innerHTML =
+        "❌ <strong>Incorrect!</strong><br><br>" +
+        "<strong>Correct Answer:</strong> " + correctAnswer + "<br><br>" +
+        "<strong>Explanation:</strong><br>" +
+        explanation;
+    }
+}
+
+
+</script>
+
+</body>
+
+</html>

@@ -179,7 +179,6 @@ printf("%d",a+b);
 </code></pre>
 
 <div class="output">2</div>
-</div></details>
 
 <div class="important">
 <h4>Important</h4>
@@ -714,7 +713,6 @@ Invalid in C
 
 <section id="summary" class="content-section">
 <details><summary>3.13 Summary</summary><div class="content">
-<h2>3.13 Summary</h2>
 
 <div class="summary">
 
@@ -740,80 +738,136 @@ Invalid in C
 
 <details><summary>3.14 Quiz</summary><div class="content">
 
+<div class="quiz-question">
+
 <h3>Question 1</h3>
 
 <p>What is the output?</p>
 
-<pre><code>printf("%d",10%4);</code></pre>
+<pre><code>
+printf("%d",10%4);
+</code></pre>
 
-<ul>
-<li>A. 1</li>
-<li>B. 2</li>
-<li>C. 3</li>
-<li>D. 4</li>
-</ul>
+<label><input type="radio" name="q1" value="A"> A. 1</label><br>
+<label><input type="radio" name="q1" value="B"> B. 2</label><br>
+<label><input type="radio" name="q1" value="C"> C. 3</label><br>
+<label><input type="radio" name="q1" value="D"> D. 4</label><br><br>
 
-<div class="output">Answer : B</div>
+<button onclick="checkAnswer(
+'q1',
+'B',
+this,
+'10 % 4 returns 2 because the modulus operator returns the remainder after division.'
+)">
+Check Answer
+</button>
+
+<div class="answer-box"></div>
+
+</div>
+
+<div class="quiz-question">
 
 <h3>Question 2</h3>
 
 <p>Which operator checks equality?</p>
 
-<ul>
-<li>A. =</li>
-<li>B. ==</li>
-<li>C. !=</li>
-<li>D. >=</li>
-</ul>
+<label><input type="radio" name="q2" value="A"> A. =</label><br>
+<label><input type="radio" name="q2" value="B"> B. ==</label><br>
+<label><input type="radio" name="q2" value="C"> C. !=</label><br>
+<label><input type="radio" name="q2" value="D"> D. >=</label><br><br>
 
-<div class="output">Answer : B</div>
+<button onclick="checkAnswer(
+'q2',
+'B',
+this,
+'The == operator compares two values for equality. The = operator assigns a value.'
+)">
+Check Answer
+</button>
+
+<div class="answer-box"></div>
+
+</div>
+
+<div class="quiz-question">
 
 <h3>Question 3</h3>
 
 <p>What is the output?</p>
 
-<pre><code>int a = 5;
+<pre><code>
+int a = 5;
 printf("%d", ++a);
 </code></pre>
 
-<ul>
-<li>A. 5</li>
-<li>B. 6</li>
-<li>C. 4</li>
-<li>D. 7</li>
-</ul>
+<label><input type="radio" name="q3" value="A"> A. 5</label><br>
+<label><input type="radio" name="q3" value="B"> B. 6</label><br>
+<label><input type="radio" name="q3" value="C"> C. 4</label><br>
+<label><input type="radio" name="q3" value="D"> D. 7</label><br><br>
 
-<div class="output">
-Answer : B
+<button onclick="checkAnswer(
+'q3',
+'B',
+this,
+'++a is a pre-increment operator. The value is incremented before it is printed.'
+)">
+Check Answer
+</button>
+
+<div class="answer-box"></div>
+
 </div>
+
+<div class="quiz-question">
 
 <h3>Question 4</h3>
 
 <p>Which operator performs Logical AND?</p>
 
-<ul>
-<li>A. &amp;</li>
-<li>B. &amp;&amp;</li>
-<li>C. ||</li>
-<li>D. !</li>
-</ul>
+<label><input type="radio" name="q4" value="A"> A. &amp;</label><br>
+<label><input type="radio" name="q4" value="B"> B. &amp;&amp;</label><br>
+<label><input type="radio" name="q4" value="C"> C. ||</label><br>
+<label><input type="radio" name="q4" value="D"> D. !</label><br><br>
 
-<div class="output">Answer : B</div>
+<button onclick="checkAnswer(
+'q4',
+'B',
+this,
+'&& is the logical AND operator. It returns true only when both conditions are true.'
+)">
+Check Answer
+</button>
+
+<div class="answer-box"></div>
+
+</div>
+
+<div class="quiz-question">
 
 <h3>Question 5</h3>
 
 <p>Which operator performs Bitwise OR?</p>
 
-<ul>
-<li>A. |</li>
-<li>B. ||</li>
-<li>C. &amp;</li>
-<li>D. ^</li>
-</ul>
+<label><input type="radio" name="q5" value="A"> A. |</label><br>
+<label><input type="radio" name="q5" value="B"> B. ||</label><br>
+<label><input type="radio" name="q5" value="C"> C. &amp;</label><br>
+<label><input type="radio" name="q5" value="D"> D. ^</label><br><br>
 
-<div class="output">Answer : A</div>
+<button onclick="checkAnswer(
+'q5',
+'A',
+this,
+'The | operator performs a bitwise OR operation on each bit of the operands.'
+)">
+Check Answer
+</button>
 
-</div></details></section>
+<div class="answer-box"></div>
+
+</div>
+
+</details></section>
 
 </main>
 
@@ -864,6 +918,64 @@ document.querySelectorAll("details").forEach(section=>{
 });
 
 updateProgress();
+
+function toggleAnswer(button){
+
+    const answer = button.nextElementSibling;
+
+    if(answer.style.display === "block"){
+
+        answer.style.display = "none";
+        button.innerHTML = "Show Answer";
+
+    }
+    else{
+
+        answer.style.display = "block";
+        button.innerHTML = "Hide Answer";
+
+    }
+}
+
+function checkAnswer(questionName, correctAnswer, button, explanation)
+{
+    const selected = document.querySelector(
+        'input[name="' + questionName + '"]:checked'
+    );
+
+    const result = button.nextElementSibling;
+
+    if(selected == null)
+    {
+        result.style.display = "block";
+        result.className = "answer-box wrong";
+        result.innerHTML = "⚠ Please select an answer.";
+        return;
+    }
+
+    if(selected.value === correctAnswer)
+    {
+        result.style.display = "block";
+        result.className = "answer-box correct";
+
+        result.innerHTML =
+        "✅ <strong>Correct!</strong><br><br>" +
+        "<strong>Explanation:</strong><br>" +
+        explanation;
+    }
+    else
+    {
+        result.style.display = "block";
+        result.className = "answer-box wrong";
+
+        result.innerHTML =
+        "❌ <strong>Incorrect!</strong><br><br>" +
+        "<strong>Correct Answer:</strong> " + correctAnswer + "<br><br>" +
+        "<strong>Explanation:</strong><br>" +
+        explanation;
+    }
+}
+
 
 </script>
 

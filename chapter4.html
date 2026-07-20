@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Chapter 3 - Operators in C</title>
+<title>Chapter 4 - Decision Making in C</title>
 
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="contentStyles.css">
@@ -137,11 +137,7 @@ Decision Making means choosing one path from multiple possible paths based on a 
 
 <section id="if" class="content-section">
 
-<details>
-
-<summary>4.2 if Statement</summary>
-
-<div class="content">
+<details><summary>4.2 if Statement</summary><div class="content">
 
 <p>
 The <strong>if</strong> statement executes a block of code only when the specified condition evaluates to <strong>true</strong>.
@@ -153,41 +149,29 @@ If the condition is false, the statements inside the if block are skipped.
 <pre><code>if(condition)
 {
     statements;
-}
-</code></pre>
+}</code></pre>
 
 <h3>Flow</h3>
+<div class="flow">
 
-<div class="flow-box">
+    <div class="box">Condition ?</div>
 
-<div class="flow-item">Condition ?</div>
+    <div class="arrow">↓</div>
 
-<div class="flow-arrow">↓</div>
+    <div class="flow-split">
 
-<div class="flow-split">
+        <div class="flow-branch">
+            <div class="box success">True</div>
+            <div class="arrow">↓</div>
+            <div class="box">Execute Statements</div>
+        </div>
 
-<div class="flow-branch">
-
-<div class="flow-item success">True</div>
-
-<div class="flow-arrow">↓</div>
-
-<div class="flow-item">Execute Statements</div>
-
-</div>
-
-<div class="flow-branch">
-
-<div class="flow-item danger">False</div>
-
-<div class="flow-arrow">↓</div>
-
-<div class="flow-item">Skip Statements</div>
-
-</div>
-
-</div>
-
+        <div class="flow-branch">
+            <div class="box danger">False</div>
+            <div class="arrow">↓</div>
+            <div class="box">Skip Statements</div>
+        </div>
+    </div>
 </div>
 
 <h3>Example</h3>
@@ -207,13 +191,7 @@ int main()
 }
 </code></pre>
 
-<div class="output-box">
-
-<strong>Output</strong>
-
-<pre>Eligible to Vote</pre>
-
-</div>
+<div class="output">Eligible to Vote</div>
 
 <div class="example-box">
 
@@ -227,41 +205,26 @@ if(num > 0)
 }
 </code></pre>
 
-<strong>Output</strong>
-
-<pre>No Output</pre>
-
-</div>
+<div class="output">No Output</div>
 
 <div class="memory-box">
 
 💡 <strong>Remember</strong>
 
 <ul>
-
 <li>If condition is TRUE → Execute block.</li>
-
 <li>If condition is FALSE → Skip block.</li>
-
 </ul>
 
 </div>
-
-</div>
-
-</details>
-
+</div></details>
 </section>
 
 <!-- ===================================================== -->
 
 <section id="ifelse" class="content-section">
 
-<details>
-
-<summary>4.3 if-else Statement</summary>
-
-<div class="content">
+<details><summary>4.3 if-else Statement</summary><div class="content">
 
 <p>
 The <strong>if-else</strong> statement is used when there are exactly two possible outcomes.
@@ -301,13 +264,7 @@ int main()
 }
 </code></pre>
 
-<div class="output-box">
-
-<strong>Output</strong>
-
-<pre>Minor</pre>
-
-</div>
+<div class="output">Minor</div>
 
 <div class="note">
 
@@ -325,13 +282,9 @@ else
 }
 </code></pre>
 
-<strong>Output</strong>
+<div class="output">Even</div>
 
-<pre>Even</pre>
-
-</div>
-
-<div class="memory-box">
+<div class="tip">
 
 💡 <strong>Tip</strong>
 
@@ -345,9 +298,952 @@ Only one block (if or else) will execute.
 
 </section>
 
+<!-- ===================================================== -->
 
+<section id="elseif" class="content-section">
 
+<details><summary>4.4 else-if Ladder</summary><div class="content">
 
+<p>
+The <strong>else-if ladder</strong> is used when there are multiple conditions to check.
+The program evaluates each condition one by one. As soon as one condition is
+true, its corresponding block is executed and the remaining conditions are skipped.
+</p>
+
+<h3>Syntax</h3>
+
+<pre><code>if(condition1)
+{
+    statements;
+}
+else if(condition2)
+{
+    statements;
+}
+else if(condition3)
+{
+    statements;
+}
+else
+{
+    statements;
+}
+</code></pre>
+
+<h3>Flow Diagram</h3>
+<div class="flow">
+    <div class="box">Condition 1 ?</div>
+    <div class="arrow">↓</div>
+    <div class="box success">True</div>
+    <div class="arrow">↓</div>
+    <div class="box">Execute Block 1</div>
+    <div class="arrow">↓</div>
+    <div class="box warning">False → Check Condition 2</div>
+    <div class="arrow">↓</div>
+    <div class="box">Continue Until Match</div>
+</div>
+
+<h3>Example</h3>
+
+<pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int marks = 82;
+
+    if(marks >= 90)
+    {
+        printf("Grade A");
+    }
+    else if(marks >= 75)
+    {
+        printf("Grade B");
+    }
+    else if(marks >= 50)
+    {
+        printf("Grade C");
+    }
+    else
+    {
+        printf("Fail");
+    }
+
+    return 0;
+}
+</code></pre>
+
+<div class="output">Grade B</div>
+
+<div class="note">
+
+<strong>How it Works</strong>
+
+<ul>
+<li>Check if marks are 90 or above.</li>
+<li>If not, check if marks are 75 or above.</li>
+<li>If not, check if marks are 50 or above.</li>
+<li>If none of the conditions are true, execute the <strong>else</strong> block.</li>
+</ul>
+
+</div>
+
+<div class="tip">
+💡 <strong>Memory Tip</strong>
+Only the <strong>first true condition</strong> is executed. All remaining conditions are skipped.
+
+</div>
+
+</div></details></section>
+
+<!-- ===================================================== -->
+
+<section id="nestedif" class="content-section">
+
+<details><summary>4.5 Nested if</summary><div class="content">
+
+<p>
+A <strong>Nested if</strong> is an <strong>if</strong> statement placed inside another
+<strong>if</strong> statement. It is useful when one condition should be checked only
+after another condition becomes true.
+</p>
+
+<h3>Syntax</h3>
+
+<pre><code>if(condition1)
+{
+    if(condition2)
+    {
+        statements;
+    }
+}
+</code></pre>
+
+<h3>Flow Diagram</h3>
+<div class="flow">
+    <div class="box">Age ≥ 18 ?</div>
+    <div class="arrow">↓</div>
+    <div class="box success">Yes</div>
+    <div class="arrow">↓</div>
+    <div class="box">Citizen ?</div>
+    <div class="arrow">↓</div>
+    <div class="flow-split">
+        <div class="flow-branch">
+            <div class="box success">Yes</div>
+            <div class="arrow">↓</div>
+            <div class="box">Eligible to Vote</div>
+        </div>
+
+        <div class="flow-branch">
+            <div class="box danger">No</div>
+            <div class="arrow">↓</div>
+            <div class="box">Not Eligible</div>
+        </div>
+    </div>
+</div>
+
+<h3>Example</h3>
+
+<pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int age = 22;
+    int citizen = 1;
+
+    if(age >= 18)
+    {
+        if(citizen == 1)
+        {
+            printf("Eligible to Vote");
+        }
+    }
+
+    return 0;
+}
+</code></pre>
+
+<div class="output">Eligible to Vote</div>
+</div>
+
+<div class="note">
+
+<strong>Explanation</strong>
+
+<p>
+The second <strong>if</strong> statement is executed only if the first condition
+(<code>age >= 18</code>) is true.
+</p>
+
+</div>
+
+<div class="tip">
+
+💡 <strong>Memory Tip</strong>
+
+Nested <strong>if</strong> means checking another condition inside an existing
+<strong>if</strong> block.
+
+</div>
+</div></details></section>
+
+<!-- ===================================================== -->
+
+<section id="switch" class="content-section">
+
+<details><summary>4.6 switch Statement</summary><div class="content">
+
+<p>
+The <strong>switch</strong> statement is used to execute one block of code from
+multiple choices. It compares the value of an expression with different
+<strong>case</strong> labels. When a match is found, the corresponding block is executed.
+</p>
+
+<div class="note">
+<strong>Note:</strong> The <code>switch</code> statement is generally used when comparing
+one variable against multiple fixed values.
+</div>
+
+<h3>Syntax</h3>
+
+<pre><code>switch(expression)
+{
+    case value1:
+        statements;
+        break;
+
+    case value2:
+        statements;
+        break;
+
+    ...
+
+    default:
+        statements;
+}
+</code></pre>
+
+<h3>Flow Diagram</h3>
+<div class="flow">
+<div class="box">Evaluate Expression</div>
+<div class="arrow">↓</div>
+<div class="box">Compare with Cases</div>
+<div class="arrow">↓</div>
+
+<div class="flow-split">
+    <div class="flow-branch">
+        <div class="box success">Case Match</div>
+        <div class="arrow">↓</div>
+        <div class="box">Execute Statements</div>
+        <div class="arrow">↓</div>
+        <div class="box">break</div>
+    </div>
+
+    <div class="flow-branch">
+        <div class="box danger">No Match</div>
+        <div class="arrow">↓</div>
+        <div class="box">default</div>
+    </div>
+</div>
+
+</div>
+
+<h3>Example</h3>
+
+<pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int day = 3;
+
+    switch(day)
+    {
+        case 1:
+            printf("Monday");
+            break;
+
+        case 2:
+            printf("Tuesday");
+            break;
+
+        case 3:
+            printf("Wednesday");
+            break;
+
+        default:
+            printf("Invalid Day");
+    }
+
+    return 0;
+}
+</code></pre>
+
+<div class="output">Wednesday</div>
+
+<h3>Why is <code>break</code> Important?</h3>
+
+<p>
+The <code>break</code> statement terminates the current case. Without it,
+execution continues into the next case. This is known as
+<strong>fall-through</strong>.
+</p>
+
+<h4>Without break</h4>
+
+<pre><code>switch(num)
+{
+    case 1:
+        printf("One");
+
+    case 2:
+        printf("Two");
+
+    case 3:
+        printf("Three");
+}
+</code></pre>
+
+<div class="output">
+
+<strong>Output (num = 2)</strong><br><br>
+
+Two<br>
+Three
+
+</div>
+
+<div class="note">
+
+<strong>Remember:</strong>
+
+Without <code>break</code>, all subsequent cases execute until a
+<code>break</code> or the end of the switch statement is reached.
+
+</div>
+
+<div class="tip">
+
+💡 <strong>Memory Tip</strong>
+
+<ul>
+<li><strong>switch</strong> is ideal for menus and fixed choices.</li>
+<li>Always use <code>break</code> unless fall-through is intended.</li>
+<li><code>default</code> is optional but recommended.</li>
+</ul>
+
+</div>
+
+</div>
+
+</details>
+
+</section>
+
+<!-- ===================================================== -->
+
+<section id="ternary" class="content-section">
+
+<details>
+
+<summary>4.7 Conditional (Ternary) Operator</summary>
+
+<div class="content">
+
+<p>
+The <strong>Conditional Operator</strong>, also called the
+<strong>Ternary Operator (?:)</strong>, is a compact way of writing a simple
+<strong>if-else</strong> statement.
+</p>
+
+<h3>Syntax</h3>
+
+<pre><code>condition ? expression1 : expression2;
+</code></pre>
+
+<p>
+
+If the condition is <strong>true</strong>, <code>expression1</code> is executed.
+Otherwise, <code>expression2</code> is executed.
+
+</p>
+
+<h3>Flow Diagram</h3>
+<div class="flow">
+    <div class="box">Condition ?</div>
+    <div class="arrow">↓</div>
+    <div class="flow-split">
+        <div class="flow-branch">
+            <div class="box success">True</div>
+            <div class="arrow">↓</div>
+            <div class="box">Expression 1</div>
+        </div>
+        <div class="flow-branch">
+            <div class="box danger">False</div>
+            <div class="arrow">↓</div>
+            <div class="box">Expression 2</div>
+        </div>
+    </div>
+</div>
+
+<h3>Example</h3>
+
+<pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a = 15;
+
+    (a > 10) ? printf("Greater")
+             : printf("Smaller");
+
+    return 0;
+}
+</code></pre>
+
+<div class="output">Greater</div>
+
+<h3>Another Example</h3>
+
+<pre><code>int x = 5;
+int result;
+
+result = (x > 0) ? 1 : 0;
+
+printf("%d", result);
+</code></pre>
+
+<div class="output">1</div>
+
+<div class="note">
+
+The ternary operator should be used only for short and simple conditions.
+For complex logic, prefer <strong>if-else</strong> for better readability.
+
+</div>
+
+<div class="tip">
+
+💡 <strong>Memory Tip</strong>
+
+<pre>condition ? True : False</pre>
+
+Think of it as a one-line <strong>if-else</strong> statement.
+
+</div>
+
+</div>
+
+</details>
+
+</section>
+
+<!-- ===================================================== -->
+
+<section id="difference" class="content-section">
+
+<details>
+
+<summary>4.8 Difference between if and switch</summary>
+
+<div class="content">
+
+<p>
+Both <strong>if</strong> and <strong>switch</strong> are decision-making statements.
+However, they are used in different situations.
+</p>
+
+<table>
+
+<tr>
+<th>if Statement</th>
+<th>switch Statement</th>
+</tr>
+
+<tr>
+<td>Works with conditions.</td>
+<td>Works with fixed values.</td>
+</tr>
+
+<tr>
+<td>Supports relational operators (&gt;, &lt;, ==, !=, etc.).</td>
+<td>Compares only equality with case values.</td>
+</tr>
+
+<tr>
+<td>Suitable for complex conditions.</td>
+<td>Suitable for menu-driven programs.</td>
+</tr>
+
+<tr>
+<td>Can evaluate multiple expressions.</td>
+<td>Evaluates only one expression.</td>
+</tr>
+
+<tr>
+<td>May become lengthy with many conditions.</td>
+<td>Cleaner when there are many fixed choices.</td>
+</tr>
+
+</table>
+
+<h3>Example using if</h3>
+
+<pre><code>if(age >= 18)
+{
+    printf("Eligible to Vote");
+}
+</code></pre>
+
+<h3>Example using switch</h3>
+
+<pre><code>switch(choice)
+{
+    case 1:
+        printf("Add");
+        break;
+
+    case 2:
+        printf("Delete");
+        break;
+
+    default:
+        printf("Invalid Choice");
+}
+</code></pre>
+
+<div class="memory-box">
+
+💡 <strong>Memory Tip</strong>
+
+<ul>
+
+<li>Use <strong>if</strong> for ranges and conditions.</li>
+
+<li>Use <strong>switch</strong> for fixed menu options.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</details>
+
+</section>
+
+<!-- ===================================================== -->
+
+<section id="examples" class="content-section">
+
+<details>
+
+<summary>4.9 Common Programming Examples</summary>
+
+<div class="content">
+
+<h3>1. Check Positive or Negative</h3>
+
+<pre><code>if(num >= 0)
+    printf("Positive");
+else
+    printf("Negative");
+</code></pre>
+
+<hr>
+
+<h3>2. Check Even or Odd</h3>
+
+<pre><code>if(num % 2 == 0)
+    printf("Even");
+else
+    printf("Odd");
+</code></pre>
+
+<hr>
+
+<h3>3. Find Largest of Two Numbers</h3>
+
+<pre><code>if(a > b)
+    printf("%d", a);
+else
+    printf("%d", b);
+</code></pre>
+
+<hr>
+
+<h3>4. Voting Eligibility</h3>
+
+<pre><code>if(age >= 18)
+    printf("Eligible");
+else
+    printf("Not Eligible");
+</code></pre>
+
+<hr>
+
+<h3>5. Calculator using switch</h3>
+
+<pre><code>switch(choice)
+{
+    case '+':
+        printf("%d", a+b);
+        break;
+
+    case '-':
+        printf("%d", a-b);
+        break;
+
+    case '*':
+        printf("%d", a*b);
+        break;
+
+    case '/':
+        printf("%d", a/b);
+        break;
+
+    default:
+        printf("Invalid Operator");
+}
+</code></pre>
+
+<div class="note">
+
+These examples are commonly asked in lab exams and interviews.
+
+</div>
+
+</div>
+
+</details>
+
+</section>
+
+<!-- ===================================================== -->
+
+<section id="mistakes" class="content-section">
+
+<details>
+
+<summary>4.10 Common Mistakes</summary>
+
+<div class="content">
+
+<h3>1. Using = instead of ==</h3>
+
+<p><strong>Wrong</strong></p>
+
+<pre><code>if(age = 18)
+</code></pre>
+
+<p><strong>Correct</strong></p>
+
+<pre><code>if(age == 18)
+</code></pre>
+
+<hr>
+
+<h3>2. Forgetting break in switch</h3>
+
+<p><strong>Wrong</strong></p>
+
+<pre><code>case 1:
+    printf("One");
+</code></pre>
+
+<p><strong>Correct</strong></p>
+
+<pre><code>case 1:
+    printf("One");
+    break;
+</code></pre>
+
+<hr>
+
+<h3>3. Missing Braces</h3>
+
+<p><strong>Wrong</strong></p>
+
+<pre><code>if(a > b)
+    printf("A");
+    printf("Done");
+</code></pre>
+
+<p><strong>Correct</strong></p>
+
+<pre><code>if(a > b)
+{
+    printf("A");
+    printf("Done");
+}
+</code></pre>
+
+<div class="memory-box">
+
+Always use braces even for a single statement.
+It improves readability and prevents bugs.
+
+</div>
+
+</div>
+
+</details>
+
+</section>
+
+<!-- ===================================================== -->
+
+<section id="bestpractices" class="content-section">
+
+<details>
+
+<summary>4.11 Best Practices</summary>
+
+<div class="content">
+
+<ul>
+
+<li>✔ Always use braces <code>{ }</code>.</li>
+
+<li>✔ Keep conditions simple and readable.</li>
+
+<li>✔ Use meaningful variable names.</li>
+
+<li>✔ Prefer <strong>switch</strong> for menu-driven programs.</li>
+
+<li>✔ Avoid deeply nested <strong>if</strong> statements.</li>
+
+<li>✔ Include a <strong>default</strong> case in every switch statement.</li>
+
+<li>✔ Indent your code properly.</li>
+
+</ul>
+
+</div>
+
+</details>
+
+</section>
+
+<!-- ===================================================== -->
+
+<section id="summary" class="content-section">
+
+<details>
+
+<summary>4.12 Summary</summary>
+
+<div class="content">
+
+<h3>Chapter Highlights</h3>
+
+<ul>
+
+<li>✔ Decision making controls the flow of program execution.</li>
+
+<li>✔ The <strong>if</strong> statement executes code only when a condition is true.</li>
+
+<li>✔ <strong>if-else</strong> selects one block from two possible choices.</li>
+
+<li>✔ <strong>else-if ladder</strong> is used to evaluate multiple conditions.</li>
+
+<li>✔ <strong>Nested if</strong> allows checking another condition inside an existing if block.</li>
+
+<li>✔ <strong>switch</strong> is ideal for fixed choices and menu-driven programs.</li>
+
+<li>✔ The <strong>break</strong> statement prevents fall-through in switch.</li>
+
+<li>✔ The <strong>default</strong> case executes when no case matches.</li>
+
+<li>✔ The <strong>Conditional (Ternary) Operator (?:)</strong> is a compact form of if-else.</li>
+
+</ul>
+
+<div class="memory-box">
+
+💡 <strong>Quick Revision</strong>
+
+<pre>
+if           → One condition
+if-else      → Two choices
+else-if      → Multiple conditions
+nested if    → Condition inside another if
+switch       → Fixed choices
+?:           → Short form of if-else
+</pre>
+
+</div>
+
+</div>
+
+</details>
+
+</section>
+
+<!-- ===================================================== -->
+
+<section id="quiz" class="content-section">
+
+<details>
+
+<summary>4.13 Quiz</summary>
+
+<div class="content">
+
+<!-- Question 1 -->
+
+<div class="quiz-card">
+
+<p><strong>Q1.</strong> Which statement executes a block only when the condition is true?</p>
+
+<label><input type="radio" name="q1" value="A"> switch</label><br>
+<label><input type="radio" name="q1" value="B"> if</label><br>
+<label><input type="radio" name="q1" value="C"> while</label><br>
+<label><input type="radio" name="q1" value="D"> goto</label><br><br>
+
+<button onclick="checkAnswer('q1','B',this)">Check Answer</button>
+
+<div class="answer-box"></div>
+
+</div>
+
+<hr>
+
+<!-- Question 2 -->
+
+<div class="quiz-card">
+
+<p><strong>Q2.</strong> Which keyword is used to exit a switch case?</p>
+
+<label><input type="radio" name="q2" value="A"> stop</label><br>
+<label><input type="radio" name="q2" value="B"> continue</label><br>
+<label><input type="radio" name="q2" value="C"> break</label><br>
+<label><input type="radio" name="q2" value="D"> exit</label><br><br>
+
+<button onclick="checkAnswer('q2','C',this)">Check Answer</button>
+
+<div class="answer-box"></div>
+
+</div>
+
+<hr>
+
+<!-- Question 3 -->
+
+<div class="quiz-card">
+
+<p><strong>Q3.</strong> Which operator is called the Conditional (Ternary) Operator?</p>
+
+<label><input type="radio" name="q3" value="A"> &&</label><br>
+<label><input type="radio" name="q3" value="B"> ||</label><br>
+<label><input type="radio" name="q3" value="C"> ?:</label><br>
+<label><input type="radio" name="q3" value="D"> ==</label><br><br>
+
+<button onclick="checkAnswer('q3','C',this)">Check Answer</button>
+
+<div class="answer-box"></div>
+
+</div>
+
+<hr>
+
+<!-- Question 4 -->
+
+<div class="quiz-card">
+
+<p><strong>Q4.</strong> What happens if <code>break</code> is omitted in a switch statement?</p>
+
+<label><input type="radio" name="q4" value="A"> Compilation Error</label><br>
+<label><input type="radio" name="q4" value="B"> Program Stops</label><br>
+<label><input type="radio" name="q4" value="C"> Fall-through occurs</label><br>
+<label><input type="radio" name="q4" value="D"> Default executes first</label><br><br>
+
+<button onclick="checkAnswer('q4','C',this)">Check Answer</button>
+
+<div class="answer-box"></div>
+
+</div>
+
+<hr>
+
+<!-- Question 5 -->
+
+<div class="quiz-card">
+
+<p><strong>Q5.</strong> Which decision-making statement is best suited for menu-driven programs?</p>
+
+<label><input type="radio" name="q5" value="A"> if</label><br>
+<label><input type="radio" name="q5" value="B"> switch</label><br>
+<label><input type="radio" name="q5" value="C"> while</label><br>
+<label><input type="radio" name="q5" value="D"> do-while</label><br><br>
+
+<button onclick="checkAnswer('q5','B',this)">Check Answer</button>
+
+<div class="answer-box"></div>
+
+</div>
+
+</div>
+
+</details>
+
+</section>
+
+<!-- ===================================================== -->
+
+<section id="exercise" class="content-section">
+
+<details>
+
+<summary>4.14 Programming Exercises</summary>
+
+<div class="content">
+
+<p>Try solving the following programs on your own.</p>
+
+<ol>
+
+<li>Write a program to check whether a number is positive or negative.</li>
+
+<li>Write a program to check whether a number is even or odd.</li>
+
+<li>Write a program to find the largest of two numbers using <strong>if-else</strong>.</li>
+
+<li>Write a program to find the largest of three numbers using an <strong>else-if ladder</strong>.</li>
+
+<li>Write a program to determine whether a person is eligible to vote.</li>
+
+<li>Create a menu-driven calculator using the <strong>switch</strong> statement.</li>
+
+<li>Display the name of the day based on a number (1–7) using <strong>switch</strong>.</li>
+
+<li>Use the <strong>Conditional (Ternary) Operator</strong> to find the larger of two numbers.</li>
+
+<li>Write a program to determine whether a year is a leap year.</li>
+
+<li>Create a grading system (A, B, C, Fail) using an <strong>else-if ladder</strong>.</li>
+
+</ol>
+
+<div class="note">
+
+<strong>Practice Tip:</strong>
+
+Try writing the program first without looking at examples. Then compile, run, and test with different inputs to understand how decision-making statements behave.
+
+</div>
+
+</div>
+
+</details>
+
+</section>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
 
 
 
@@ -356,7 +1252,7 @@ Only one block (if or else) will execute.
 <footer>
 
 <p>
-End of Chapter 3 - Operators in C
+End of Chapter 4 - Decision Making
 </p>
 
 </footer>
